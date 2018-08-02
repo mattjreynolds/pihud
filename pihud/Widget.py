@@ -1,7 +1,7 @@
 
 import obd
 from .widgets import widgets
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Widget(QtWidgets.QWidget):
@@ -13,11 +13,11 @@ class Widget(QtWidgets.QWidget):
         # temporary coloring until display widgets get implemented
         # self.setAutoFillBackground(True)
         # palette = self.palette()
-        # palette.setColor(self.backgroundRole(), QtGui.QColor(255, 255, 255, 50))
+        # palette.setColor(self.backgroundRole(), QtWidgets.QColor(255, 255, 255, 50))
         # self.setPalette(palette)
 
         # make the context menu
-        self.menu = QtGui.QMenu()
+        self.menu = QtWidgets.QMenu()
         self.menu.addAction(self.config["sensor"]).setDisabled(True)
 
         subMenu = self.menu.addMenu("Widget Type")
@@ -69,11 +69,11 @@ class Widget(QtWidgets.QWidget):
 
             # show the ghost image while dragging
             pixmap = QtGui.QPixmap.grabWidget(self)
-            painter = QtGui.QPainter(pixmap)
-            painter.fillRect(pixmap.rect(), QtGui.QColor(0, 0, 0, 127))
+            painter = QtWidgets.QPainter(pixmap)
+            painter.fillRect(pixmap.rect(), QtWidgets.QColor(0, 0, 0, 127))
             painter.end()
 
-            drag = QtGui.QDrag(self)
+            drag = QtWidgets.QDrag(self)
             drag.setMimeData(mimeData)
             drag.setPixmap(pixmap)
             drag.setHotSpot(e.pos())

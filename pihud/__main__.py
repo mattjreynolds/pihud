@@ -3,7 +3,7 @@ import os
 import sys
 import obd
 import shutil
-from pihud import PiHud
+from .PiHud import PiHud
 from PyQt5 import QtWidgets
 from .GlobalConfig import GlobalConfig
 
