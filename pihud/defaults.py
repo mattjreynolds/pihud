@@ -1,6 +1,6 @@
 
 
-from Config import Config
+from .Config import Config
 from obd import commands as c
 
 
